@@ -1,7 +1,7 @@
 # Portfolio-main
 
 ## api_technical writing_json_and_xml_exercises
-   * [create_xml_challenge.xml] (#create_xml_challenge.xml)
+   * [create_xml_challenge] (#create_xml_challenge)
    * exercise_4.md
    * markdown_challenge.md
    * markdown_exercise_2.md
