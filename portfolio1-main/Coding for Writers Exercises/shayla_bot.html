@@ -1,0 +1,77 @@
+<!DOCTYPE HTML> <html>
+<head>
+<style>
+p{
+line-height: 50%;
+}
+</style>
+</head>
+<body onload="initialize()">
+
+<h1>Shayla</h1>
+
+<img src="https://shaylahilt.com/wp-content/uploads/Facetune_22-08-2018-23-25-59-e1629587068647.jpg" alt="smiling pitcture of Shayla">
+
+<p>Hiya. How are we doing? <input id="textbox" size="150"/></p>
+<p><button onclick="submitLine()">Submit</button></p>
+
+<div id="conversation"></div>
+
+<script>
+var therapySession;
+const genericResponses = [
+  "Uh-huh.",
+  "Go on.",
+  "How does that make you feel?",
+  "What if you stopped hoeing?",
+  "Date Kennan, if you want. Ignore the haters",
+  "Why do you say that?",
+  "That's very interesting.",
+  "Fascinating...",
+  "Keep talking."];
+
+const questionResponses = [
+  "Why do you ask?",
+  "What do <em>you</em> think?",
+  "That's an interesting question. Go take a walk and meditate on it.",
+  "Follow your heart",
+  "Reach for the sky."];
+
+const calmingRequests = [
+  "Please calm down.",
+  "No need to get so excited.",
+  "You sound very passionate about that.",
+  "Would you care to restate that in a more neutral tone?"];
+
+function initialize() {
+  therapySession = "<p> Tell me about your mood. How are you feeling?</p>";
+  conversation.innerHTML = therapySession;
+}
+
+function submitLine() {
+  var patientLine = textbox.value;
+  therapySession += "<p> <em>" + patientLine + "</em> </p>";
+
+  var therapistLine;
+    if (lastChar(patientLine) == "?") {
+    therapistLine = randomElement(questionResponses);
+    } else if (lastChar(patientLine) == "!") {
+   therapistLine = randomElement(calmingRequests);
+    } else {
+      therapistLine = randomElement(genericResponses);}
+    }
+    therapySession += "<p>" + therapistLine + "</p>";
+     conversation.innerHTML = therapySession;
+    }
+
+function randomElement(myArray) {
+  var index = Math.floor(Math.random() * myArray.length);
+  return myArray[index];
+}
+
+function lastChar(myString) {
+  return myString.substring(myString.length - 1);
+}
+
+</script>
+</body> </html>
